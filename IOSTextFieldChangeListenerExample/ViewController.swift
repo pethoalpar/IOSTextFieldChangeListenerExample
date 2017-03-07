@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var labelField: UILabel!
+    @IBOutlet weak var uiTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        uiTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -20,6 +24,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func textFieldDidChange(_ textField: UITextField){
+        self.labelField.text = textField.text
+    }
 
 }
 
